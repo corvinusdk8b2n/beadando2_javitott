@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <body>
+
+    <h1>Főoldal</h1><br>
+        <form action="#" th:action="@{/}" th:object="${personForm}" method="post">
+            <table>
+                <tr>
+                    <td>Vezetéknév:</td>
+                    <td><input type="text" th:field="*{lastname}" /></td>
+                    <td th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}">Lastname Error</td>
+                </tr>
+                <tr>
+                    <td>Keresztnév:</td>
+                    <td><input type="text" th:field="*{firstname}" /></td>
+                    <td th:if="${#fields.hasErrors('firstname')}" th:errors="*{firstname}">Firstname Error</td>
+                </tr>
+                <tr>
+                    <td>Felhasználónév:</td>
+                    <td><input type="text" th:field="*{username}" /></td>
+                    <td th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Username Error</td>
+                </tr>
+                <tr>
+                    <td>Jelszó:</td>
+                    <td><input type="password" th:field="*{password}" /></td>
+                    <td th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password Error</td>
+                </tr>
+                <tr>
+                    <td><button type="submit">Regisztráció</button></td>
+                </tr>
+            </table>
+        </form>
+        <br>
+        <form action="/login" method="post">
+            <button type="submit">Belépés</button>
+        </form>
+
+    </body>
+</html>
